@@ -10,4 +10,11 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def learnstream
+  end
+
+  def courses
+  end
+  
 end
