@@ -16,5 +16,10 @@ class StaticPagesController < ApplicationController
 
   def courses
   end
+
+  def math40
+  end
   
+  def math132
+  end
 end
