@@ -1,0 +1,148 @@
+<script type = "javascript">
+var loadVideo = function(time, youtube_id) {
+
+    // things to do when video loads:
+    // - push document
+    // - create button to hide video
+    
+    // make sure video and controls are visible
+    $("#video").show();
+    $(".video-control").show();
+    $("#document-options").show();
+
+    $(window).data('delayedTime', -1);
+    $(window).data('scrollBind', true);
+    $(window).data('lastPosition', $("#document-container").scrollTop());
+
+    if (!ytplayer) 
+    {
+  $(window).data('current_video', youtube_id);
+  var params= { allowScriptAccess: "always" };
+  var atts = { id: "myytplayer" };
+
+  swfobject.embedSWF("http://www.youtube.com/v/" + youtube_id + "&enablejsapi=1&playerapiid=ytplayer", 
+         "ytapiplayer", "425", "356", "8", null, null, params, atts);
+  
+  $(window).data('delayedTime', time);
+    } 
+    else 
+    {
+  if ($(window).data('current_video') != youtube_id) {
+      $(window).data('current_video', youtube_id);
+      ytplayer.loadVideoById(youtube_id, time);
+  }
+  else {
+      seekTo(time);
+      ytplayer.playVideo();
+  }
+    }
+
+    adjustDocument();
+}
+
+
+</script>
+
+<% provide(:title, 'Learnstream Gamma') %>
+<h1>Learnstream Gamma</h1>
+<p>
+  This is a subproject of OLP. 
+  We continue existing projects by two Mudd alum: Ryan and Niel.
+  The existing projects are the following:
+  <ul>
+  	<li><a href = "http://learntrace.herokuapp.com/"> Learntrace </a></li>
+  	The motto of this site is "Don't just look. Learn!" You can 
+  	put video links in your "streams". Then you can schedule those.
+  	Basically you create your own course of study, and you can share
+  	those with other people too.
+
+  	<li><a href = "http://learnstream.heroku.com/"> Learnstream </a></li>
+  	This one has nice exercises. You can watch mini-lectures, solve problems, 
+  	track your progresses, and get better in your class.
+
+  	<li><a href = "http://beta.learnstream.org/"> Learnstream Beta </a></li>
+  	This site was used as a supplement of Math 131: Real Analysis 
+  	class taught by Prof. Su. It has all the lectures. Students can 
+  	view the lectures before class, or review it. 
+  	Other features include flashcards that anyone can post and share with
+  	classmates.
+  </ul>
+
+
+
+  <h3>Some new ideas include:</h3>
+  <ul>
+  	<li>Interactive quizzes</li>
+  	<li>Breaking videos lessons into small chunks </li>
+  	<li>Make a course that stands on its own (for people who don't enroll for the class). This is more difficuly, so we put it off until later </li>
+  </ul>
+
+
+  <h3>Things that are already known how to do</h3>
+  <ul>
+    <li> This semester we learned quite a bit
+      of Ruby on Rails, so that this page
+      is possible. </li>
+    <li> Add a math equation like this: 
+      $\sqrt{9 + 4\sqrt{5}} - \sqrt{9 - 4\sqrt{5}} = 4,$ or like this
+      \[\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}.\]
+      We use MathJax for this one.
+    </li>
+  </ul>
+
+<h3>Experimental Areas:</h3>
+  <ul>
+    <li> Well, we try to break a video into small parts, each corresponding to exactly on concept, rather than having the students watch the whole video.
+      This will benefit the students when they first
+      see the lectures so they know the landscape,
+      and also when they review the materials so 
+      they know exactly where to look for. 
+
+      Right now, we are learning how to do this
+      in a systematic way using BackBone.js.
+    </li>
+  </ul>
+
+<% video_id = "sqEyWLGvvdw" %>
+<% video_time = "70" %>
+<% video_end = "395" %>
+
+<a class="play-btn btn btn-small btn-info" data-videoid="<%= video_id %>" data-start="<%= video_time %>" data-end="<%= video_end %>" href="#"><i class="icon-play icon-white"></i> Watch!</a> 
+ (this button doesn't work yet)
+
+<div id='content-chapters'>
+<a href="#" name="sqEyWLGvvdw/1424" class="play-button" onclick="javascript:loadVideo(1424, 'sqEyWLGvvdw'); return false;">Play This</a>
+
+ <div id="video-panel">
+    <div id="video">
+      <div class="embeddedvideo">
+      <div id="ytapiplayer"></div>    
+      </div>
+    </div>
+    
+  <div id="notes" class="video-notes"></div>
+  </div> <!-- end video-panel -->
+
+<iframe width="420" height="345"
+src="http://www.youtube.com/embed/sqEyWLGvvdw">
+</iframe>
+
+<!--<video id="sampleMovie" src="http://www.youtube.com/embed/sqEyWLGvvdw"></video>-->
+
+<br>
+<ul>
+<li><a href="#">First Chunk
+<span>1</span>
+</a></li>
+<li><a href="#">Second Chunk
+<span>2</span>
+</a></li>
+<li><a href="#">Quiz
+<span>3</span>
+</a></li>
+</ul>
+<a href="#" class="texthide" id="content-chapter-expand">Expand Chapters</a>
+</div>
+
+
+</p>
