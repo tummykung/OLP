@@ -22,4 +22,7 @@ class StaticPagesController < ApplicationController
   
   def math132
   end
+
+  def secret
+  end
 end

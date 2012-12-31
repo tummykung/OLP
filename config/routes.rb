@@ -9,6 +9,7 @@ OLP::Application.routes.draw do
   match '/projects', to: 'static_pages#projects'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
+  match '/secret',  to: 'static_pages#secret'
   match '/signup',  to: 'users#new'
   match '/learnstream', to: 'static_pages#learnstream'
 
