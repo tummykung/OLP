@@ -5,6 +5,7 @@ OLP::Application.routes.draw do
 
 
   root to: 'static_pages#home'
+  match '/test',    to: 'static_pages#test'
   match '/help',    to: 'static_pages#help'
   match '/courses', to: 'static_pages#courses'
   match '/math40', to: 'static_pages#math40'
