@@ -14,5 +14,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require khan-exercise
 //= require_tree .
