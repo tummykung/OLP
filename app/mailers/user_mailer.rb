@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: "olp-l@g.hmc.edu"
   default bcc: "tum_chaturapruek@hmc.edu"
-  default_url_options[:host] = "https://muddsd-olp.herokuapp.com"
+  default_url_options[:host] = "muddsd-olp.herokuapp.com"
   
   def registration_confirmation(user)
     @user = user
