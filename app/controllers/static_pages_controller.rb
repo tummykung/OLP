@@ -18,9 +18,6 @@ class StaticPagesController < ApplicationController
   def learnstream
   end
 
-  def courses
-  end
-
   def math40
   end
   

@@ -13,10 +13,13 @@ OLP::Application.routes.draw do
 
 
   root to: 'static_pages#home'
+
+
   match '/test',    to: 'static_pages#test'
   match '/help',    to: 'static_pages#help'
-  match '/courses', to: 'static_pages#courses'
+  match '/info', to: 'static_pages#info'
   match '/math40', to: 'static_pages#math40'
+  match '/math40_enroll', to: 'static_pages#math40_enroll'
   match '/math132', to: 'static_pages#math132'
   match '/projects', to: 'static_pages#projects'
   match '/about',   to: 'static_pages#about'
@@ -27,6 +30,11 @@ OLP::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new' 
   match '/signout',  to: 'sessions#destroy'
+
+  
+  match '/new_course',  to: 'courses#new'
+  match '/new_lecture',  to: 'lectures#new' 
+
     
   # The priority is based upon order of creation:
   # first created -> highest priority.

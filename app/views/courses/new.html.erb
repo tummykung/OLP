@@ -1,0 +1,21 @@
+<% provide(:title, 'Add Course') %>
+<h1>Add Course</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@course) do |f| %>
+    	<%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :professor %>
+      <%= f.text_field :professor %>
+
+      <%= f.label :time_offer %>
+      <%= f.text_field :time_offer %>
+
+      <%= f.submit "Add course", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

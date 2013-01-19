@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 		if @user.save
 			UserMailer.registration_confirmation(@user).deliver
 			sign_in @user
-			flash[:success] = "Welcome to the Sample App!"
+			flash[:success] = "Welcome to the Online Learning Platform!"
 			redirect_to @user
 		else
 			render 'new'

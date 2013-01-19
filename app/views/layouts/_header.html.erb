@@ -8,9 +8,9 @@
           <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Courses <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Details", courses_path %></li>
-                <li><%= link_to "Math40", math40_path %></li>
-                <li><%= link_to "MathAnalysis", math132_path %></li>
+                <li><%= link_to "Course Info", info_path %></li>
+                <li><%= link_to "Math40: Intro to Linear Algebra", math40_path %></li>
+                <li><%= link_to "Math132: Analysis II", math132_path %></li>
               </ul>
             </li>
           <li><%= link_to "Projects", projects_path %></li>
@@ -33,9 +33,23 @@
                 </li>
               </ul>
             </li>
+
           <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
+
+          <% if current_user.admin? %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Admin Tools <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Add Course", new_course_path %></li>
+                <li><%= link_to "Add Lecture", new_lecture_path %></li>
+              </ul>
+            </li>
+          <% end %>
+            
         </ul>
       </nav>
     </div>

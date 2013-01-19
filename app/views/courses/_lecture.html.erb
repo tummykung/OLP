@@ -1,0 +1,7 @@
+<li>
+  <span class="content"><%= lecture.content %></span>
+  <span class="timestamp">
+    Posted at <%= time_in_words(lecture.created_at) %>.
+  </span>
+  <%= link_to lecture.name, lecture, title: lecture.name %>
+</li>
